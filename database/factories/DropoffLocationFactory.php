@@ -24,7 +24,7 @@ class DropoffLocationFactory extends Factory
             'neighborhood' => $this->faker->city,
             'city' => $this->faker->city,
             'state' => $this->faker->stateAbbr,
-            'zip_code' => $this->faker->postcode,
+            'zip_code' => substr($this->faker->postcode, 0, 10),
             'phone' => $this->faker->phoneNumber,
             'whatsapp' => $this->faker->phoneNumber,
         ];
