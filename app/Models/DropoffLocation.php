@@ -16,6 +16,7 @@ class DropoffLocation extends Model
         'address',
         'number',
         'complement',
+        'neighborhood',
         'city',
         'state', 
         'zip_code', 

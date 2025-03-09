@@ -82,6 +82,7 @@ class DropoffLocationResource extends Resource
                         ->label('Aceita somente tampinhas')
                         ->default(false),
                 ])
+                ->columns(2)
             ]);
     }
 
