@@ -67,7 +67,7 @@
         <hr class="my-6 border-zinc-200 sm:mx-auto dark:border-zinc-700 lg:my-8" />
         <div class="flex items-center justify-center md:justify-between">
             <div>
-                <p class="font-medium  mb-1">Associação Raça Pra Quê?</p>
+                <p class="font-medium  mb-1">Associação Raça Pra Quê</p>
                 <p class="text-xs mb-1">CNPJ 42.771.889/0001-50, Viamão, Rio Grande do Sul</p>
             </div>
             <div>
