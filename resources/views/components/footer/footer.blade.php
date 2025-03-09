@@ -60,7 +60,7 @@
                 <div class="flex flex-col justify-center items-center text-center p-8 rounded-lg bg-primary">
                     <h2 class="mb-6 text-sm uppercase font-semibold text-white">Faça uma doação</h2>
                     <p class="mb-6  text-white">Toda contribuição, não importa o valor, é fundamental para manter o nosso trabalho.</p> 
-                    <x-button href="{{ route('donation') }}" class="w-full bg-secondary hover:bg-secondary-hover">Quero doar</x-button>    
+                    <x-button href="{{ route('donation') }}" class="w-full bg-secondar hover:bg-secondary-hover">Quero doar</x-button>    
                 </div>                      
             </div>
         </div>
