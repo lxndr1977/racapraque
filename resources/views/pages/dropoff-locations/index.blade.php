@@ -7,7 +7,7 @@
                 <p class="mb-3">Para facilitar as doações, temos pontos de coleta em empresas parceiras, onde você pode deixar suas contribuições. Além disso, disponibilizamos pontos exclusivos para o recebimento de tampinhas plásticas. Confira os endereços dos pontos de coleta.</p> 
             </div>
             <div>
-                <img src="{{ asset('images/pattern.png') }}" alt="Raça Pra Quê">
+                <img src="{{ asset('images/pattern.png') }}" alt="Raça Pra Quê" loading="lazy">
             </div>
         </div>
         

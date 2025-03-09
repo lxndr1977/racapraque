@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('zip_code', 9);
             $table->string('phone')->nullable();
             $table->string('whatsapp')->nullable();
+            $table->boolean('accepts_only_plastic_caps')->default(false);
             $table->timestamps();
         });
     }

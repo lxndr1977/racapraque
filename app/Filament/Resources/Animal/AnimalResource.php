@@ -39,6 +39,8 @@ class AnimalResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Animais';
 
+    protected static ?string $slug = 'animais';
+
     public static function form(Form $form): Form
     {
         return $form

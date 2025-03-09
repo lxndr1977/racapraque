@@ -8,7 +8,7 @@
                 <p>Você pode apoiar o Raça Pra Quê? de várias formas: contribuindo com itens para o brechó solidário, doando itens essenciais como ração e medicamentos, oferecendo lar temporário voluntáriopara um animal, ou doando tampinhas plásticas para a compra de ração.</p>
             </div>
             <div>
-                <img src="{{ asset('images/hero-apoie-o-raca-pra-que.webp') }}" class="w-full" alt="Raça Pra Quê">
+                <img src="{{ asset('images/hero-apoie-o-raca-pra-que.webp') }}" class="w-full h-auto" alt="Raça Pra Quê">
             </div>
         </div>
        
@@ -27,7 +27,7 @@
                     </div>
                     <h3 class="font-medium text-lg">Doe itens para o brechó</h3>
                     <p>O brechó do “Raça Pra Quê?” é uma outra alternativa para complementar a renda do projeto.</p>
-                    <a href="{{ route('thrift-store') }}" class="font-medium text-primary">Saiba mais</a>
+                    <a href="{{ route('thrift-store') }}" class="font-medium text-primary" aria-label="O que pode ser doado para o brechó">Saiba mais</a>
                 </div>
 
                 <div class="space-y-3">
@@ -39,7 +39,7 @@
                     <h3 class="font-medium text-lg">Doe itens para o dia-a-dia</h3>
                     <p>Aceitamos doações de itens essenciais para o dia-a-dia dos abrigados e para a manutenção da sede. 
                     </p>
-                    <a href="{{ route('needed-items') }}" class="font-medium text-primary">Saiba mais</a>
+                    <a href="{{ route('needed-items') }}" class="font-medium text-primary" aria-label="Itens que podem ser doados para o dia-a-dia">Saiba mais</a>
                 </div>
 
                 <div class="space-y-3">
@@ -50,7 +50,7 @@
                     </div>
                     <h3 class="font-medium text-lg">Ofereça lar temporário</h3>
                     <p>Seja lar temporário voluntário para um abrigado até conseguirmos uma família que o adote.</p>
-                    <a href="{{ route('temporary-shelter') }}" class="font-medium text-primary">Saiba mais</a>
+                    <a href="{{ route('temporary-shelter') }}" class="font-medium text-primary" aria-label="Ofereça lar temoprário para um abrigado">Saiba mais</a>
                 </div>
             </div>
         </section>
@@ -58,7 +58,7 @@
         <section class="py-18">
             <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
                 <div>
-                    <img src="{{ asset('images/home-tampinha-legal.webp') }}" class="w-full" alt="Raça Pra Quê">
+                    <img src="{{ asset('images/home-tampinha-legal.webp') }}" class="w-full h-auto" alt="Raça Pra Quê" loading="lazy">
                 </div>
                 <div>
                     <p class="text-tertiary font-bold uppercase tracking-wide mb-2">Tampinhas que alimentam</p>

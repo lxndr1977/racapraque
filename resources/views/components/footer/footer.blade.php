@@ -10,10 +10,10 @@
                 </a>
 
                 <div class="flex mt-4 space-x-3 justify-start sm:mt-0">
-                    <a href="#" class="bg-primary p-2 rounded-full text-white hover:bg-primary-hover">
+                    <a href="https://instagram.com/racapraque" class="bg-primary p-2 rounded-full text-white hover:bg-primary-hover" aria-label="Instagram">
                         <x-icons.instagram width="24" height="24"/>                    
                     </a>
-                    <a href="#" class="bg-primary p-2 rounded-full text-white hover:bg-primary-hover">
+                    <a href="https://facebook.com/racapraque" class="bg-primary p-2 rounded-full text-white hover:bg-primary-hover" aria-label="Facebook">
                         <x-icons.facebook width="24" height="24" class="-ms-[1px]"/>                    
                     </a>
                 </div>

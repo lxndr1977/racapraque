@@ -28,6 +28,8 @@ class AdoptionRequestResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Solicitações de adoção';
 
+    protected static ?string $slug = 'solicitacoes-de-adocao';
+
     public static function form(Form $form): Form
     {
         return $form

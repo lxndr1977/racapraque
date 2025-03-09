@@ -21,5 +21,6 @@ class DropoffLocation extends Model
         'zip_code', 
         'phone',
         'whatsapp',
+        'accepts_only_plastic_caps'
     ];
 }

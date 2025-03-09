@@ -29,6 +29,8 @@ class SponsorshipResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Apadrinhamentos';
 
+    protected static ?string $slug = 'apadrinhamentos';
+
     public static function form(Form $form): Form
     {
         return $form
