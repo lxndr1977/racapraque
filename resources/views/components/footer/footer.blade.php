@@ -53,7 +53,7 @@
                     <li>
                         <x-link href="{{ route('terms-of-use') }}" class="text-zinc-700 font-normal">Termos de Uso</x-link>
                     </li>
-                </ul>
+                </ul>  
               
             </div>
             <div>
