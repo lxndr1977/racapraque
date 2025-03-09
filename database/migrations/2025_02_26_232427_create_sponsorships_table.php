@@ -19,9 +19,9 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Expense::class);
             $table->decimal('amount');
-            $table->boolean('status')
+            $table->string('status')
                 ->array_column(SponsorshipStatusEnum::cases(), 'value')
-                ->default(SponsorshipStatusEnum::Active);
+                ->default(SponsorshipStatusEnum::Active->value);
             $table->string('notes')->nullable();
             $table->timestamps();
         });
