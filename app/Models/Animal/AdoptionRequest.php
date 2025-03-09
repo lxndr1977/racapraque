@@ -3,6 +3,7 @@
 namespace App\Models\Animal;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AdoptionRequest extends Model
 {
@@ -11,5 +12,11 @@ class AdoptionRequest extends Model
         'name',
         'email',
         'whatsapp',
+        'contacted',
     ];
+
+    public function animal(): BelongsTo
+    {
+        return $this->belongsTo(Animal::class);
+    }
 }
