@@ -29,7 +29,7 @@ class AnimalList extends Component
             $animals->sponsorables();
         }
         
-        $animals = $animals->orderBy('name')->simplePaginate(3);
+        $animals = $animals->orderBy('name')->simplePaginate(25);
 
         return view('livewire.animal.animal-list', ['animals' => $animals]);
     }

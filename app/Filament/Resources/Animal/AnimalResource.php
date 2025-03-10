@@ -145,6 +145,7 @@ class AnimalResource extends Resource
                 Forms\Components\Section::make('Fotos')
                     ->schema([
                         Forms\Components\SpatieMediaLibraryFileUpload::make('animal_images')
+                            ->label('Fotos')
                             ->multiple()
                             ->reorderable()
                             ->responsiveImages()
