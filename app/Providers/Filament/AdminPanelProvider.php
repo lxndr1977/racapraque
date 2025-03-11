@@ -52,6 +52,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->brandLogo(asset('images/logo-raca-pra-que.webp'))
+            ->brandLogoHeight('3rem');
     }
 }
