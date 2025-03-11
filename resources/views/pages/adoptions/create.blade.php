@@ -1,4 +1,4 @@
-<x-layouts.main>
+<x-layouts.main title="Adote um abrigado | Projeto Raça Pra Quê?">
     <x-page-layout>
         <article class="py-6">
             <div class="flex flex-col md:flex-row gap-16 relative">
@@ -11,9 +11,7 @@
 
                     @include('partials/animal/details', ['show_full_description' => true])
 
-                    <div class="p-8 rounded-lg bg-zinc-100">
-                        
-
+                    <div class="p-0 md:p-8 rounded-lg bg-white md:br-zinc-100">
                         <livewire:animal.adoption-form animal_id="{{ $animal->id }}" animal_name="{{$animal->genderedName }}" />
                     </div>
                 </div>

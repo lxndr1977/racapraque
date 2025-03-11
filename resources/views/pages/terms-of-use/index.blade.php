@@ -1,4 +1,4 @@
-<x-layouts.main>
+<x-layouts.main title="Termos de uso do site | Projeto Raça Pra Quê?">
     <x-page-layout title="Termos de uso do site">
         <!-- Termos de Uso com Tailwind CSS -->
         <div class="container mx-auto px-4 py-8 max-w-4xl">

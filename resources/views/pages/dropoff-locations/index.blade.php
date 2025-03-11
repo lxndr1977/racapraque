@@ -1,9 +1,9 @@
-<x-layouts.main>
+<x-layouts.main title="Pontos de coleta de doações | Projeto Raça Pra Quê?">
     <x-page-layout>
         <div class="grid grid-cols-1 md:grid-cols-2 items-center py-18 gap-10">
             <div>
                 <p class="text-tertiary font-bold uppercase tracking-wide mb-2">Pontos de coleta</p>
-                <h1 class="font-medium text-5xl mb-4 text-primary">Saiba onde entregar as duas doações</h1>
+                <h1 class="font-medium text-4xl md:text-5xl mb-4 text-primary">Saiba onde entregar as duas doações</h1>
                 <p class="mb-3">Para facilitar as doações, temos pontos de coleta em empresas parceiras, onde você pode deixar suas contribuições. Além disso, disponibilizamos pontos exclusivos para o recebimento de tampinhas plásticas. Confira os endereços dos pontos de coleta.</p> 
             </div>
             <div>

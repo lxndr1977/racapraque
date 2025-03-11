@@ -2,6 +2,8 @@ import Swiper from 'swiper/bundle';
 
 import 'swiper/css/bundle';
 
+
+
 const swiper = new Swiper(".swiper-animal-thumbnails", {
   loop: true,
   watchSlidesVisibility: true,
@@ -28,3 +30,6 @@ Livewire.on('animalSponsored', url => {
 });
 
 });
+
+
+import 'lazysizes';

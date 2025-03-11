@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 items-center py-18 gap-10">
             <div>
                 <p class="text-tertiary font-bold uppercase tracking-wide mb-2">Apoie</p>
-                <h1 class="font-medium text-5xl mb-4 text-primary">Como apoiar projeto Raça Pra Quê?</h1>
+                <h1 class="font-medium text-4xl md:text-5xl mb-4 text-primary">Como apoiar projeto Raça Pra Quê?</h1>
                 <p class="mb-3">Sabemos que nem sempre a ajuda financeira é possível, mas existem muitas outras maneiras de apoiar o "Raça Pra Quê?"" e fazer a diferença na vida dos animais resgatados.</p> 
                 <p>Você pode apoiar o Raça Pra Quê? de várias formas: contribuindo com itens para o brechó solidário, doando itens essenciais como ração e medicamentos, oferecendo lar temporário voluntáriopara um animal, ou doando tampinhas plásticas para a compra de ração.</p>
             </div>

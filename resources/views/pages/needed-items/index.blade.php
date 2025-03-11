@@ -1,4 +1,4 @@
-<x-layouts.main>
+<x-layouts.main title="Doe itens para o dia-a-dia | Projeto Raça Pra Quê?">
     <x-page-layout title="Doe itens que usamos com frequência">
         <div class="max-w-3xl mx-auto space-y-3">
 

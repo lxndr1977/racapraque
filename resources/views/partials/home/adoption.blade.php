@@ -14,7 +14,7 @@
                 @foreach ($adoptables as $animal)
                     <x-animal-card 
                         action="adoption"
-                        image="{{ $animal->getFirstMediaUrl('animals', 'responsive') ?: asset('images/animal-placeholder.jpg') }}"
+                        image="{{ $animal->getFirstMediaUrl('animals', 'responsive') ?? asset('images/animal-placeholder-300px.webp') }}"
                         slug="{{ $animal->slug }}"
                         name="{{ $animal->name }}"
                         gender="{{ $animal->genderLabel }}"/>

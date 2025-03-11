@@ -1,9 +1,9 @@
-<x-layouts.main>
+<x-layouts.main title="Conheça o projeto | Projeto Raça Pra Quê?">
     <x-page-layout>
         <div class="grid grid-cols-1 md:grid-cols-2 items-center py-18 gap-10">
             <div>
                 <p class="text-tertiary font-bold uppercase tracking-wide mb-2">Quem somos</p>
-                <h1 class="font-medium text-5xl mb-4 text-primary">Sobre o Projeto Raça Pra Quê?</h1>
+                <h1 class="font-medium text-4xl md:text-5xl mb-4 text-primary">Sobre o Projeto Raça Pra Quê?</h1>
                 <p>O “Projeto Raça Pra Quê?” nasceu em 2016, em Viamão, Rio Grande do Sul, e desde então tem se dedicado incansavelmente a uma missão: resgatar animais em situações de maus-tratos, oferecendo-lhes cuidados veterinários, reabilitação e amor, preparando-os para uma segunda chance por meio da adoção responsável.</p>
             </div>
             <div>
@@ -35,13 +35,13 @@
         </section>
 
         <section class="grid grid-cols-1 md:grid-cols-2 items-center py-18 gap-10">
-            <div>
+            <div class="order-2 md:order-1'">
                 <p class="text-tertiary font-bold uppercase tracking-wide mb-2">Nossa existência</p>
                 <h2 class="font-medium text-4xl mb-4 text-primary">Como mantemos as nossas atividades</h2>
                 <p class="mb-3">O nosso trabalho de resgate, reabilitação e cuidado com os animais resgatados de situações de abandono ou maus-tratos depende principalmente das doações feitas por pessoas que abraçam a causa animal.</p>
                 <p class="mb-3">Além das <a href="{{ route('donation') }}" class="font-medium text-primary">doações</a>, complementamos nossa renda com a <a href="https://reserva.ink/racapraque" target="_blank" class="font-medium text-primary">venda de produtos</a> com a marca do projeto, parcerias estratégicas, brechós solidários e diversas outras ações de captação de recursos.</p>
             </div>
-            <div>
+            <div class="order-1 md:order-2">
                 <img src="{{ asset('images/hero-sobre-o-raca-pra-que-2.webp') }}" alt="Raça Pra Quê">
             </div>
         </section>

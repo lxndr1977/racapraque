@@ -6,7 +6,7 @@
         <div class="grid grid-cols-1 gap-8 sm:gap-6 md:grid-cols-4 py-8 lg:py-12">
             <div class="mb-6 md:pt-7">
                 <a href="{{ route('home') }}" class="flex items-center mb-12">
-                    <img src="{{ asset('images/logo-raca-pra-que.png') }}" class="mr-3 h-18" alt="Logo Raça Pra Quê" />
+                    <img src="{{ asset('images/logo-raca-pra-que.webp') }}"  width="123" height="72" class="mr-3 h-18" alt="Logo Raça Pra Quê" />
                 </a>
 
                 <div class="flex mt-4 space-x-3 justify-start sm:mt-0">
@@ -65,9 +65,9 @@
             </div>
         </div>
         <hr class="my-6 border-zinc-200 sm:mx-auto dark:border-zinc-700 lg:my-8" />
-        <div class="flex items-center justify-center md:justify-between">
+        <div class="flex flex-col md:flex-row items-center justify-center text-center md:text-start md:justify-between">
             <div>
-                <p class="font-medium  mb-1">Associação Raça Pra Quê</p>
+                <p class="font-medium mb-1">Associação Raça Pra Quê</p>
                 <p class="text-xs mb-1">CNPJ 42.771.889/0001-50, Viamão, Rio Grande do Sul</p>
             </div>
             <div>

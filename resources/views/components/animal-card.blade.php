@@ -26,12 +26,17 @@
     <article>
        
         <a href="{{ route($route, $slug) }}">
-            <img 
-                src="{{ $image }}"    
+            <img
+                src="{{ asset('images/animal-placeholder-300px.webp') }}" 
+                data-src="{{ $image }}"    
                 alt="{{ $name }}" 
-                loading="lazy" 
-                class="mb-4 rounded-md">                        
+                loading="lazy"
+                width="300"
+                height="300" 
+                class="lazyload mb-4 rounded-md aspect-square w-full h-auto">                   
+                
             <h3 class="text-lg font-medium line-clamp-1">{{ $name }}</h3>
+
             <p class="text-sm text-gray-600 mb-6">{{ $gender }}</p>
 
             <x-button type="link" hef="{{ route($route, $slug) }}" class="w-full">

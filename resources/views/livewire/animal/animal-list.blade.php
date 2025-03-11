@@ -4,7 +4,7 @@
             @foreach ($animals as $animal)
             <x-animal-card 
                     action="{{ $scope === \App\Enums\Animal\ScopeEnum::Adoptables ? 'adoption' : 'sponsorship' }}"
-                    image="{{ $animal->getFirstMediaUrl('animals', 'responsive') ?: asset('images/animal-placeholder.jpg') }}"
+                    image="{{ $animal->getFirstMediaUrl('animals', 'responsive') ?? asset('images/animal-placeholder-300px.webp') }}"
                     slug="{{ $animal->slug }}"
                     name="{{ $animal->name }}"
                     gender="{{ $animal->genderLabel }}"/>

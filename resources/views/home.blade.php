@@ -1,4 +1,4 @@
-<x-layouts.main>
+<x-layouts.main title="Projeto Raça Pra Quê? | Adote, não compre!">
     @include('partials/home/hero')
     
     @include('partials/home/adoption')

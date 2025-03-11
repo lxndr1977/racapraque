@@ -138,7 +138,7 @@ class Animal extends Model implements HasMedia
     protected function genderedName(): Attribute
     {
         return Attribute::make(
-            get: fn () => ($this->gender === 'male' ? 'o ' : 'a ') . $this->name
+            get: fn () => ($this->gender === GenderEnum::Male ? 'o ' : 'a ') . $this->name
         );
     }
 

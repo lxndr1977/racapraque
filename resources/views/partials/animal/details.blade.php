@@ -1,7 +1,7 @@
-<h1 class="text-5xl font-medium text-primary mb-4">{{ $animal->name }}</h1>
+<h1 class="text-4xl md:text-5xl font-medium text-primary mb-4">{{ $animal->name }}</h1>
 
 @if(!empty($animal->short_description))
-    <p class="text-lg text-zinc-700 mb-6">{{ $animal->short_description }}</p>
+    <p class="text-base md:text-lg text-zinc-700 mb-6">{{ $animal->short_description }}</p>
 @endif 
 
 <div class="border-t border-b border-zinc-100">

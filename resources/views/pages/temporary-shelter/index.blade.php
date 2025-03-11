@@ -1,4 +1,4 @@
-<x-layouts.main>
+<x-layouts.main title="Ofereça lar temporário | Projeto Raça Pra Quê?">
     <x-page-layout title="Lar Temporário Voluntário">
         <div class="max-w-3xl mx-auto">
             <p class="mb-3">Atualmente estamos com a sede lotada e com alguns animais abrigados em lar temporário pago, o que aumenta consideravelmente a nossa despesa mensal.</p>

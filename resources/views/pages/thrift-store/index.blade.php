@@ -1,4 +1,4 @@
-<x-layouts.main>
+<x-layouts.main title="Doe itens para o brechó | Projeto Raça Pra Quê?">
     <x-page-layout title="Doe itens para o nosso brechó solidário">
         <div class="max-w-3xl mx-auto space-y-3">
             <p>O brechó do “Raça Pra Quê?” é uma outra alternativa para complementar a renda do projeto.<p>

@@ -2,12 +2,14 @@
     <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4">
         <nav class="flex justify-between items-center">
             <!-- Logo -->
-            <button @click="open = true" class="md:hidden text-xl focus:outline-none">
-                ☰
-            </button>
-            <a href="{{ route('home') }}" class="text-lg font-medium">
-                <img src="{{ asset('images/logo-raca-pra-que.png') }}" class="mr-3 h-18" alt="Logo Raça Pra Quê" />
-            </a>
+             <div class="flex gap-3">
+                <button @click="open = true" class="md:hidden text-xl focus:outline-none">
+                    ☰
+                </button>
+                <a href="{{ route('home') }}" class="text-lg font-medium">
+                    <img src="{{ asset('images/logo-raca-pra-que.webp') }}" class="mr-3 h-16 w-auto md:h-18" width="123" height="72" alt="Logo Raça Pra Quê" />
+                </a>
+            </div>
 
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6">
@@ -63,7 +65,7 @@
 
     <!-- Mobile Menu (Fullscreen) -->
     <div x-show="open" x-transition 
-        class="fixed inset-0 space-y-6 bg-white bg-opacity-90 flex flex-col justify-center bg-zinc-100 p-6 md:px-10"
+        class="fixed inset-0 space-y-6 bg-white bg-opacity-90 flex flex-col justify-center bg-zinc-100 p-6 md:px-10 z-9"
         style="display: none;">
 
         <button @click="open = false" class="absolute top-4 right-6 text-3xl text-gray-700">&times;</button>

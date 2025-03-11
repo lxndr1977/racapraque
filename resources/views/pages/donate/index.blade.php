@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 items-center py-18 gap-10">
             <div>
                 <p class="text-tertiary font-bold uppercase tracking-wide mb-2">Doe agora</p>
-                <h1 class="font-medium text-5xl mb-4 text-primary">Como apoiar financeiramente</h1>
+                <h1 class="font-medium text-4xl md:text-5xl mb-4 text-primary">Como apoiar financeiramente</h1>
                 <p class="mb-3">Você pode nos apoiar de várias maneiras: tornando-se um apoiador mensal pelo Apoia.se, agendando doações recorrentes, fazendo doações únicas via Pix ou apadrinhando um animal.</p> 
                 <p class="mb-3">Toda contribuição, não importa o valor, é fundamental para manter o nosso trabalho de resgate e cuidado com os animais resgatados e abrigados pelo projeto.</p>
             </div>
