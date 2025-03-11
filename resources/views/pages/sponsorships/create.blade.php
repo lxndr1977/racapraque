@@ -11,7 +11,7 @@
 
                     @include('partials/animal/details', ['show_full_description' => false])
 
-                    <div class="p-0 md:p-8 rounded-lg bg-white md:br-zinc-100">
+                    <div class="p-0 md:p-8 rounded-lg bg-white md:bg-zinc-100">
                         <h2 class="text-2xl font-medium text-primary">Apadrinhe {{$animal->genderedName }}</h2>
                         
                         <livewire:animal.sponsorship-form :animal="$animal" />
