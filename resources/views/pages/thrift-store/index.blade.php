@@ -13,7 +13,7 @@
                 <li>Eletrônicos</li>
             </ul>
             
-            <p>Confira os <a href="{{ route ('donation-dropoff') }}" target="_blank" class="font-medium text-primary">pontos de coleta</a> onde você pode entregar as suas doações.</p> 
+            <p>Confira os <a href="{{ route ('donation-dropoff') }}" class="font-medium text-primary">pontos de coleta</a> onde você pode entregar as suas doações.</p> 
         </div>
     </x-page-layout>
 </x-layouts.main>
