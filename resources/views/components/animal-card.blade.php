@@ -59,9 +59,10 @@
             <div>
                <h3 class="text-lg font-medium line-clamp-1">{{ $name }}</h3>
                
-               <p class="text-sm text-gray-600">Espécie: {{ $specie }}</p>
-
+               <p class="text-sm text-gray-600">{{ $gender }}</p>
+               
                @if(($action == 'view')) 
+                  <p class="text-sm text-gray-600">Espécie: {{ $specie }}</p>
                   <p class="text-sm text-gray-600">Local: {{ $location }}</p>
                @endif
 

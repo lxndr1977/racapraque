@@ -13,7 +13,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 @foreach ($adoptables as $animal)
                     <x-animal-card 
-                        action="adoption"
+                        action="adoption" 
                         image="{{ $animal->getFirstMediaUrl('animals', 'responsive') ?? asset('images/animal-placeholder-300px.webp') }}"
                         slug="{{ $animal->slug }}"
                         name="{{ $animal->name }}"
