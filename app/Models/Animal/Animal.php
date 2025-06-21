@@ -23,8 +23,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
@@ -71,9 +70,9 @@ class Animal extends Model implements HasMedia
         'status' => StatusEnum::class,
     ];
 
-    public function location(): HasOne
+    public function location(): BelongsTo
     {
-        return $this->hasOne(Location::class, 'id', 'location_id');
+        return $this->belongsTo(Location::class, 'location_id', 'id');
     }
 
     public function expenses(): HasMany
@@ -91,6 +90,14 @@ class Animal extends Model implements HasMedia
             'id',                     
             'id'                      
         );
+    }
+
+    public function scopeActives(Builder $query): void
+    {
+        $query->where([
+            ['status', StatusEnum::Active],
+            ['is_visible_on_site', true]
+        ]);
     }
 
     public function scopeAdoptables(Builder $query): void
@@ -228,4 +235,13 @@ class Animal extends Model implements HasMedia
             ->format('webp')
             ->nonQueued();
     }
+
+
+    // No model Animal.php
+protected function locationName(): Attribute
+{
+    return Attribute::make(
+        get: fn () => $this->location?->name ?? 'Localização não informada'
+    );
+}
 }

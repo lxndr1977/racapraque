@@ -16,18 +16,20 @@ use App\Enums\Animal\SpecieEnum;
 use App\Enums\Animal\StatusEnum;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use BladeUI\Icons\Components\Icon;
 use App\Enums\Animal\SociabilityEnum;
 use App\Enums\Animal\TemperamentEnum;
-use App\Enums\Animal\HealthConditionEnum;
 use App\Enums\Animal\LocationTypeEnum;
+use App\Enums\Animal\HealthConditionEnum;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Animal\AnimalResource\Pages;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Infolists\Components\SpatieMediaLibraryImageEntry;
 use App\Filament\Resources\Animal\AnimalResource\RelationManagers;
-use BladeUI\Icons\Components\Icon;
 
 class AnimalResource extends Resource
 {
@@ -183,6 +185,12 @@ class AnimalResource extends Resource
     {
         return $table
             ->columns([
+                SpatieMediaLibraryImageColumn::make('animal_images')
+                     ->collection('animals')
+                     ->conversion('thumbnail')
+                     ->conversion('responsive')
+                     ->extraImgAttributes(['loading' => 'lazy'])
+                     ->limit(1),
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nome')
                     ->sortable()
@@ -245,6 +253,7 @@ class AnimalResource extends Resource
     {
         return $infolist
             ->schema([
+              
                 Section::make('Informações do animal')
                     ->schema([
                         TextEntry::make('name')
@@ -274,6 +283,13 @@ class AnimalResource extends Resource
                             ->boolean(),
                     ])
                     ->columns(4),
+
+               Section::make('Fotos')
+                     ->schema(([
+                          SpatieMediaLibraryImageEntry::make('animal_images')
+                              ->collection('animals')
+                              ->conversion('responsive'),
+                     ])),
 
                 Section::make('Detalhes')
                     ->schema([

@@ -15,7 +15,7 @@ class Sponsorship extends Model
     protected $fillable = [
         'user_id',
         'expense_id',
-        'amount',
+        'amount', 
         'status',
         'notes'
     ];

@@ -4,6 +4,7 @@ use App\Http\Controllers\DropoffLocationController;
 use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\AdoptionsController;
+use App\Http\Controllers\Web\AnimalController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\SponsorshipsController;
 
@@ -21,6 +22,9 @@ Route::view('/ofereca-lar-temporario', 'pages.temporary-shelter.index')->name('t
 Route::get('/pontos-de-coleta', [DropoffLocationController::class, 'index'])->name('donation-dropoff');
 Route::view('/politica-de-privacidade', 'pages.privacy-policy.index')->name('privacy-policy');
 Route::view('/termos-de-uso', 'pages.terms-of-use.index')->name('terms-of-use');
+   
+Route::get('/abrigados', [AnimalController::class, 'index'])->name('animal.index');
+Route::get('/abrigados/{slug}', [AnimalController::class, 'show'])->name('animal.show');
 
 Route::get('/adote', [AdoptionsController::class, 'index'])->name('adoption.index');
 Route::get('/adote/{slug}', [AdoptionsController::class, 'create'])->name('adoption.create');
