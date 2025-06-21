@@ -10,6 +10,7 @@ use Database\Seeders\Animal\AnimalSeeder;
 use Database\Seeders\Animal\ExpenseSeeder;
 use Database\Seeders\Animal\LocationSeeder;
 use Database\Seeders\Animal\SponsorshipSeeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Alexandre',
             'email' => 'alexandre@alexandre.com.br',
             'role' => RoleEnum::Admin,
+            'password' => Hash::make('091177')
         ]);
 
         $this->call(LocationSeeder::class);

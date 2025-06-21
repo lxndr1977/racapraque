@@ -15,7 +15,8 @@
                 <li>Medicação para otite canina</li>
                 <li>Antipulgas e coleiras Seresto. Infelizmente, temos casos positivos de Leishmaniose</li>
                 <li>Remédios variados que podem estar sem uso ou que estejam vencidos há até 6 meses: prednisona, doxiclina, amoxilina, metronidazol, cefalexina, itraconazol, alopurinol, domperidona, dipirona, tramadol, furosemida, vonau e cobavital</li>
-                <li>Soros, gazes e ataduras</li>
+                <li>Soros</li>
+                <li>Ataduras, esparadrapos e gazes</li> 
             </ul>
 
             <p class="font-medium">Rações</p>
