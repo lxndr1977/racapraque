@@ -1,3 +1,4 @@
+@props(['listStyle' => 'grid'])
 <div>
     @if ($animals->isNotEmpty())
         @if ($listStyle == App\Enums\Animal\ListStyleEnum::Grid->value)

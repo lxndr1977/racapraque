@@ -4,9 +4,9 @@
     'name',
     'gender',
     'image',
-    'listStyle',
+    'listStyle' => 'grid',
     'location',
-    'specie'
+    'specie' => ''
 ])
 
 @switch($action)

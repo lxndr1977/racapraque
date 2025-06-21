@@ -4,7 +4,7 @@
             <h1 class="font-medium text-3xl text-primary">Lista de abrigados</h1>
         </div>
         <livewire:animal.animal-list 
-            :scope="App\Enums\Animal\ScopeEnum::Active"
+            :scope="App\Enums\Animal\ScopeEnum::Actives"
             :listStyle="App\Enums\Animal\ListStyleEnum::Horizontal->value"/>
     </x-page-layout>
 </x-layouts.main>

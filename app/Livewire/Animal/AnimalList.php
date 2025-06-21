@@ -26,12 +26,12 @@ class AnimalList extends Component
             ->with('location'); // Sempre carregar location para evitar N+1
 
 
-              if ($this->scope === ScopeEnum::Active) {
-            $animals->active();
+       if ($this->scope === ScopeEnum::Actives) {
+            $animals->actives();
         } 
 
-        if ($this->scope === ScopeEnum::Actives) {
-            $animals->actives();
+        if ($this->scope === ScopeEnum::Visibles) {
+            $animals->visiblesOnSite();
         } 
 
         if ($this->scope === ScopeEnum::Adoptables) {

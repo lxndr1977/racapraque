@@ -92,14 +92,14 @@ class Animal extends Model implements HasMedia
         );
     }
 
-   public function scopeActive(Builder $query): void
+   public function scopeActives(Builder $query): void
    {
         $query->where([
             ['status', StatusEnum::Active],
         ]);
     }
 
-    public function scopeActives(Builder $query): void
+    public function scopeVisiblesOnSite(Builder $query): void
     {
         $query->where([
             ['status', StatusEnum::Active],
