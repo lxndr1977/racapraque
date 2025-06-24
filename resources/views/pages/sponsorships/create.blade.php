@@ -9,7 +9,10 @@
                 <div class="space-y-12 w-full md:w-3/5">
                     <p class="text-tertiary font-bold uppercase tracking-wide mb-2">Apadrinhe</p>
 
-                    @include('partials/animal/details', ['show_full_description' => false])
+                     @include('partials/animal/details', [
+                        'show_full_description' => false,
+                        'show_location_info' => false,
+                     ])
 
                     <div class="p-0 md:p-8 rounded-lg bg-white md:bg-zinc-100">
                         <h2 class="text-2xl font-medium text-primary">Apadrinhe {{$animal->genderedName }}</h2>

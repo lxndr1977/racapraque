@@ -5,6 +5,7 @@
         </div>
         <livewire:animal.animal-list 
             :scope="App\Enums\Animal\ScopeEnum::Actives"
-            :listStyle="App\Enums\Animal\ListStyleEnum::Horizontal->value"/>
+            :listStyle="App\Enums\Animal\ListStyleEnum::Horizontal->value"
+            :showFilters="true" />
     </x-page-layout>
 </x-layouts.main>
