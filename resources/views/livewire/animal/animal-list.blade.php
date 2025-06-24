@@ -157,8 +157,12 @@
                         </div>
                     </div>
                 @endif
+                 
             </div>
         </div>
+       <div class="mb-6 font-bold text-sm text-primary">
+         {{ trans_choice('{0} Nenhum animal encontrado|{1} :count animal encontrado|[2,*] :count animais encontrados', $animals->count(), ['count' => $animals->count()]) }}
+      </div>
     @endif
 
     {{-- Lista de Animais --}}
