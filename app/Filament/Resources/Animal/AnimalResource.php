@@ -11,6 +11,7 @@ use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use App\Models\Animal\Animal;
 use App\Enums\Animal\SizeEnum;
+use App\Models\Animal\Location;
 use App\Enums\Animal\GenderEnum;
 use App\Enums\Animal\SpecieEnum;
 use App\Enums\Animal\StatusEnum;
@@ -204,6 +205,7 @@ class AnimalResource extends Resource
                 Tables\Columns\TextColumn::make('location.is_volunteer')
                     ->label('Local')
                     ->badge(),
+                Tables\Columns\TextColumn::make('location.name'),
                 Tables\Columns\TextColumn::make('status')
                     ->label('Status')
                     ->badge(),                    
@@ -232,8 +234,14 @@ class AnimalResource extends Resource
                     ->default(StatusEnum::Active->value),
                 Tables\Filters\SelectFilter::make('location.is_volunterr')
                     ->label('Local')
-                    ->options(LocationTypeEnum::class)                    
+                    ->options(LocationTypeEnum::class)    ,
+               Tables\Filters\SelectFilter::make('location.name')
+                    ->label('Nome do Local')
+                    ->relationship('location', 'name')
+                    ->searchable(),
             ])
+            ->filtersFormColumns(2)
+
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\ViewAction::make(),
