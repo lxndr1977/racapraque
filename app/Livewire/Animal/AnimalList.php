@@ -129,6 +129,9 @@ class AnimalList extends Component
                 });
             }
         }
+
+       $totalAnimals = $animals->count();
+
         
         $animals = $animals->orderBy('name')->simplePaginate(24);
 
@@ -171,7 +174,8 @@ class AnimalList extends Component
             'animals' => $animals,
             'species' => $species,
             'genders' => $genders,
-            'locations' => $locations
+            'locations' => $locations,
+            'totalAnimals' => $totalAnimals
         ]);
     }
 }
