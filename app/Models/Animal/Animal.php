@@ -156,6 +156,41 @@ class Animal extends Model implements HasMedia
         );
     }
 
+   protected function genderedArticle(): Attribute
+   {
+      return Attribute::make(
+         get: fn () => $this->gender === GenderEnum::Male ? 'o' : 'a'
+      );
+   }
+
+   protected function genderedPreposition(): Attribute
+   {
+      return Attribute::make(
+         get: fn () => $this->gender === GenderEnum::Male ? 'do' : 'da'
+      );
+   }
+
+   protected function genderedPronoun(): Attribute
+   {
+      return Attribute::make(
+         get: fn () => $this->gender === GenderEnum::Male ? 'ele' : 'ela'
+      );
+   }
+
+   protected function genderedPossessive(): Attribute
+   {
+      return Attribute::make(
+         get: fn () => $this->gender === GenderEnum::Male ? 'dele' : 'dela'
+      );
+   }
+
+   protected function genderedAdjectiveAdopted(): Attribute
+   {
+      return Attribute::make(
+         get: fn () => $this->gender === GenderEnum::Male ? 'adotado' : 'adotada'
+      );
+   }
+
     protected function sizeLabel(): Attribute
     {
         return Attribute::make(
@@ -243,12 +278,10 @@ class Animal extends Model implements HasMedia
             ->nonQueued();
     }
 
-
-    // No model Animal.php
-protected function locationName(): Attribute
-{
-    return Attribute::make(
-        get: fn () => $this->location?->name ?? 'Localização não informada'
-    );
-}
+   protected function locationName(): Attribute
+   {
+      return Attribute::make(
+         get: fn () => $this->location?->name ?? 'Localização não informada'
+      );
+   }
 }

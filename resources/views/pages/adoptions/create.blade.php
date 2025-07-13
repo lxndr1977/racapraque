@@ -6,7 +6,7 @@
                     @include('partials/animal/images')
                 </div>
 
-                <div class="w-full md:w-3/5">
+                <div class="w-full  space-y-12 md:w-3/5">
                     <p class="text-tertiary font-bold uppercase tracking-wide mb-2">Adote</p>
 
                     @include('partials/animal/details', [
@@ -14,7 +14,7 @@
                         'show_location_info' => false,
                      ])
 
-                    <div class="p-0 md:p-8 rounded-lg bg-white md:bg-zinc-100">
+                    <div class="p-0 md:p-8 rounded-xl  border border-1 border-zinc-100 shadow-md">
                         <livewire:animal.adoption-form animal_id="{{ $animal->id }}" animal_name="{{$animal->genderedName }}" />
                     </div>
                 </div>

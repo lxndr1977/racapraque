@@ -1,25 +1,37 @@
 <h1 class="text-4xl md:text-5xl font-medium text-primary mb-4">{{ $animal->name }}</h1>
 
 @if(!empty($animal->short_description))
-    <p class="text-base md:text-lg text-zinc-700 mb-6">{{ $animal->short_description }}</p>
+    <p class="text-base md:text-lg text-zinc-900 mb-6">{{ $animal->short_description }}</p>
 @endif 
 
-<div class="border-t border-b border-zinc-100">
-    <dl class="divide-y divide-zinc-100">
-        <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
-            <dt class="text-sm font-medium text-zinc-900">Espécie</dt>
-            <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->specieLabel }}</dd>
-        </div>
-        
-        <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
-            <dt class="text-sm font-medium text-zinc-900">Sexo</dt>
-            <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->genderLabel }}</dd>
-        </div>
+<div class="grid grid-cols-3 gap-4">
+   <div class="px-4 py-5 flex flex-col items-center sm:gap-4 sm:px-0 bg-zinc-50 border-1 border-zinc-200 rounded-lg">
+      <p class="text-sm font-medium text-zinc-900">Espécie</p>
+      <p class="mt-1 text-primary text-lg font-medium sm:col-span-2 sm:mt-0">{{ $animal->specieLabel }}</p>
+   </div>
+   
+   <div class="px-4 py-5 flex flex-col items-center sm:gap-4 sm:px-0 bg-zinc-50 border-1 border-zinc-200 rounded-lg">
+      <p class="text-sm font-medium text-zinc-900">Sexo</p>
+      <p class="mt-1 text-primary text-lg font-medium sm:col-span-2 sm:mt-0">{{ $animal->genderLabel }}</p>
+   </div>
 
-        <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
-            <dt class="text-sm font-medium text-zinc-900">Porte</dt>
-            <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->sizeLabel }}</dd>
-        </div>
+   <div class="px-4 py-5 flex flex-col items-center sm:gap-4 sm:px-0 bg-zinc-50 border-1 border-zinc-200 rounded-lg">
+      <p class="text-sm font-medium text-zinc-900">Porte</p>
+      <p class="mt-1 text-primary text-lg font-medium sm:col-span-2 sm:mt-0">{{ $animal->sizeLabel }}</p>
+   </div>
+</div>
+
+
+
+<div class="border-1 border-zinc-200 rounded-lg">
+      <div class="flex items-center text-zinc-900 py-4 px-6 rounded-t-lg bg-zinc-50 border-b-1 border-zinc-200">
+         <div class="flex items-center justify-center mr-3">
+            <x-heroicon-o-information-circle class="w-6 h-6 text-primary" />
+         </div>
+         <h3 class="font-medium text-md">Informações</h3>
+      </div>   
+
+      <dl class="divide-y divide-zinc-200 px-6">
 
         @if(!empty($animal->birth_date))
             <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
@@ -57,26 +69,26 @@
                     <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->temperamentLabels }}</dd>
                 </div>
             @endif
+         @endif
 
-            @if(!empty($animal->health_conditions))
-                <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium text-zinc-900">Condições de saúde</dt>
-                    <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->healthConditionsLabels }}</dd>
-                </div>
-            @endif
+         @if(!empty($animal->health_conditions))
+               <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
+                  <dt class="text-sm font-medium text-zinc-900">Condições de saúde</dt>
+                  <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->healthConditionsLabels }}</dd>
+               </div>
+         @endif
 
-            @if(!empty($animal->special_needs))
-                <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0 ">
-                    <dt class="text-sm font-medium text-zinc-900">Necessidades especiais</dt>
-                    <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->special_needs }}</dd>
-                </div>
-            @endif
+         @if(!empty($animal->special_needs))
+               <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0 ">
+                  <dt class="text-sm font-medium text-zinc-900">Necessidades especiais</dt>
+                  <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->special_needs }}</dd>
+               </div>
+         @endif
 
-            <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
-                <dt class="text-sm font-medium text-zinc-900">Castrado</dt>
-                <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->neuteredStatus }}</dd>
-            </div>
-        @endif
+         <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
+               <dt class="text-sm font-medium text-zinc-900">Castrado</dt>
+               <dd class="mt-1 text-zinc-700 sm:col-span-2 sm:mt-0">{{ $animal->neuteredStatus }}</dd>
+         </div>
 
          @if($show_location_info)
             <div class="px-4 py-5 sm:grid sm:grid-cols-3 items-center sm:gap-4 sm:px-0">
@@ -94,7 +106,7 @@
     </dl>
 
     @if(!empty($animal->full_description) && $show_full_description)
-        <p class="text-zinc-700 mt-4 mb-8">{{ $animal->full_description }}</p>
+        <p class="text-zinc-700 mt-4 mb-8 px-6">{{ $animal->full_description }}</p>
     @endif
 
 </div>
