@@ -91,11 +91,12 @@ class SponsorshipResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Apoiador')
-                    ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('expense.id')
+                Tables\Columns\TextColumn::make('animal.name')
+                    ->label('Abrigado')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('expense.type')
                     ->label('Despesa')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('amount')
                     ->label('Valor')
