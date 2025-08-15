@@ -21,13 +21,14 @@ class SponsorshipObserver
      */
     public function updated(Sponsorship $sponsorship): void
     {
-        if ($sponsorship->isDirty('status')) {
-            $expense = Expense::find($sponsorship->expense_id);
-
-            if (!$expense) {
-                return;
+       
+       if ($sponsorship->isDirty('amount')) {
+          $expense = Expense::find($sponsorship->expense_id);
+          
+          if (!$expense) {
+             return;
             }
-
+            
             if ($sponsorship->status === SponsorshipStatusEnum::Active) {
                 // Se o status for Active, atualize o total_sponsorship com o valor de amount
                 $expense->total_sponsorship = $sponsorship->amount;
