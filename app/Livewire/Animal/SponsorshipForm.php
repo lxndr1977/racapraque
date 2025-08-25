@@ -22,6 +22,13 @@ class SponsorshipForm extends Component
 
     public array $expenseOptions = [];
 
+    // ===== APENAS ADIÇÕES - NÃO MEXE NO SEU CÓDIGO ORIGINAL =====
+    public $totalExpenses = 0;
+    public $totalSponsored = 0;
+    public $progressPercentage = 0;
+    public $remainingAmount = 0;
+    // ============================================================
+
     protected $rules = [
         'expense_id' => 'required|exists:expenses,id',
         'name' => 'required|string|max:255',
@@ -32,13 +39,48 @@ class SponsorshipForm extends Component
 
     public function mount(Animal $animal, Collection $expenses)
     {
+         // SEU CÓDIGO ORIGINAL - NÃO MEXO NADA AQUI
          $this->animal = $animal;
          $firstExpense = $animal->expensesActive->firstWhere('status', \App\Enums\Animal\ExpenseStatusEnum::Active);
          $this->expense_id = $firstExpense ? $firstExpense->id : null;
          $this->expenses = $expenses;
-;
          $this->expenseOptions = $this->expenses->pluck('id')->toArray();
+
+         // APENAS ESTA LINHA ADICIONADA
+         $this->calculateTotals();
     }
+
+    // ===== MÉTODOS NOVOS - NÃO AFETAM SEU CÓDIGO =====
+    private function calculateTotals()
+    {
+        $this->totalExpenses = $this->expenses->sum('amount');
+        $this->totalSponsored = $this->expenses->sum('total_sponsorship');
+        $this->remainingAmount = $this->totalExpenses - $this->totalSponsored;
+        $this->progressPercentage = $this->totalExpenses > 0 
+            ? round(($this->totalSponsored / $this->totalExpenses) * 100, 1)
+            : 0;
+    }
+
+    public function getFormattedTotalExpenses()
+    {
+        return 'R$ ' . number_format($this->totalExpenses, 2, ',', '.');
+    }
+
+    public function getFormattedTotalSponsored()
+    {
+        return 'R$ ' . number_format($this->totalSponsored, 2, ',', '.');
+    }
+
+    public function getFormattedRemainingAmount()
+    {
+        return 'R$ ' . number_format($this->remainingAmount, 2, ',', '.');
+    }
+
+    public function getIsFullySponsored()
+    {
+        return $this->totalSponsored >= $this->totalExpenses;
+    }
+    // ================================================
 
     public function render()
     {
@@ -47,6 +89,7 @@ class SponsorshipForm extends Component
 
     public function submit(SponsorshipService $sponsorshipService)
     {
+        // SEU CÓDIGO ORIGINAL - ZERO ALTERAÇÕES
         $this->validate();
 
         $result = $sponsorshipService->handleSponsorshipRequest(
@@ -65,6 +108,11 @@ class SponsorshipForm extends Component
         if ($result['status'] === 'success') {
             // $this->dispatch('animalSponsored', $result['link']);
             $this->reset(['name', 'email', 'whatsapp']);
+            
+            // OPCIONAL: Se quiser atualizar os totais após novo patrocínio
+            // Descomente as linhas abaixo se precisar
+            // $this->expenses = $this->animal->expensesActive;
+            // $this->calculateTotals();
         }
     }
 }

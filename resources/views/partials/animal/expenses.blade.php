@@ -5,7 +5,7 @@
             <div class="flex items-center justify-center mr-3">
                <x-heroicon-o-document-currency-dollar class="w-6 h-6 text-primary" />
             </div>
-            <h3 class="font-medium text-md">Despesas</h3>
+            <h3 class="font-medium text-md">Essas são as minhas despesas</h3>
          </div>
 
          <ul class="divide-y divide-zinc-200">

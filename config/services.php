@@ -35,4 +35,17 @@ return [
         ],
     ],
 
+   'twilio' => [
+      'sid'   => env('TWILIO_SID'),
+      'token' => env('TWILIO_TOKEN'),
+      'from'  =>"+14155238886",
+   ],
+
+ 'whatsapp' => [
+    'access_token' => env('WHATSAPP_ACCESS_TOKEN'),
+    'phone_number_id' => env('WHATSAPP_PHONE_NUMBER_ID'),
+    'version' => env('WHATSAPP_VERSION', 'v21.0'),
+    'webhook_verify_token' => env('WHATSAPP_WEBHOOK_VERIFY_TOKEN'),
+    'test_phone_number' => env('WHATSAPP_TEST_PHONE_NUMBER'), // Adicione esta linha
+],
 ];

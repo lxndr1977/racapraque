@@ -37,6 +37,9 @@ class UserResource extends Resource
                         Forms\Components\TextInput::make('name')
                             ->required()
                             ->label('Nome'),
+                        Forms\Components\TextInput::make('whatsapp')
+                            ->required()
+                            ->label('Whatsapp'),
                         Forms\Components\TextInput::make('email')
                             ->label('Email')
                             ->email()

@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\DropoffLocationController;
 use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web\AdoptionsController;
-use App\Http\Controllers\Web\AnimalController;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\WhatsappController;
+use App\Http\Controllers\Web\AnimalController;
+use App\Http\Controllers\WhatsAppApiController;
+use App\Http\Controllers\Web\AdoptionsController;
+use App\Http\Controllers\DropoffLocationController;
 use App\Http\Controllers\Web\SponsorshipsController;
 
 Route::get('/', [HomeController::class, 'show'])->name('home');
@@ -43,5 +45,14 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 });
+
+
+Route::get('/teste-whatsapp', [WhatsappController::class, 'send']);
+Route::get('/teste-sms', [WhatsappController::class, 'testSms']);
+Route::post('/send-whatsapp', [WhatsappController::class, 'sendCustom']);
+Route::post('/check-status', [WhatsappController::class, 'checkStatus']);
+
+
+    Route::get('/send-text', [WhatsAppApiController::class, 'sendTestMessage']);
 
 require __DIR__.'/auth.php';

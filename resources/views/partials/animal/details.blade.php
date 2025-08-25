@@ -28,7 +28,7 @@
          <div class="flex items-center justify-center mr-3">
             <x-heroicon-o-information-circle class="w-6 h-6 text-primary" />
          </div>
-         <h3 class="font-medium text-md">Informações</h3>
+         <h3 class="font-medium text-md">Algumas informações sobre mim</h3>
       </div>   
 
       <dl class="divide-y divide-zinc-200 px-6">

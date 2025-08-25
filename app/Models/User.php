@@ -12,6 +12,7 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -27,6 +28,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'whatsapp',
         'role',
     ];
 
@@ -65,6 +67,32 @@ class User extends Authenticatable implements FilamentUser
             ->implode('');
     }
 
+    protected function firstName(): Attribute
+    {
+        return Attribute::get(fn () => explode(' ', $this->name)[0]);
+    }
+
+     protected function whatsapp(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value ? $this->formatPhone($value) : $value,
+            set: fn ($value) => preg_replace('/\D/', '', $value), // Remove tudo que não é dígito
+        );
+    }
+
+    // Método helper para formatar telefone
+    private function formatPhone($value)
+    {
+        $cleaned = preg_replace('/\D/', '', $value);
+        
+        if (strlen($cleaned) <= 10) {
+            // Telefone fixo: (11) 9999-9999
+            return preg_replace('/(\d{2})(\d{4})(\d{4})/', '($1) $2-$3', $cleaned);
+        } else {
+            // Celular: (11) 99999-9999
+            return preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $cleaned);
+        }
+    }
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->role === RoleEnum::Admin;
