@@ -13,6 +13,7 @@ use Filament\Resources\Resource;
 use App\Models\Animal\Sponsorship;
 use Filament\Support\Enums\FontWeight;
 use Filament\Infolists\Components\Group;
+use Filament\Tables\Columns\Layout\Split;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Infolists\Components\Section;
 use App\Enums\Animal\SponsorshipStatusEnum;
@@ -21,6 +22,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Infolists\Components\TextEntry\TextEntrySize;
 use App\Filament\Resources\Animal\SponsorshipResource\Pages;
 use App\Filament\Resources\Animal\SponsorshipResource\RelationManagers;
+use Filament\Tables\Columns\Layout\Stack;
+use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class SponsorshipResource extends Resource
 {
@@ -97,39 +100,52 @@ class SponsorshipResource extends Resource
    {
       return $table
          ->columns([
-            Tables\Columns\TextColumn::make('user.name')
-               ->label('Apoiador')
-               ->sortable(),
+            Split::make([
+               // Coluna esquerda
+               Stack::make([
+                  Tables\Columns\TextColumn::make('animal.name')
+                     ->label('Abrigado')
+                     ->sortable()
+                     ->searchable()
+                     ->weight('bold'),
 
-            Tables\Columns\TextColumn::make('animal.name')
-               ->label('Abrigado')
-               ->sortable(),
+                  Tables\Columns\TextColumn::make('user.name')
+                     ->label('Apoiador')
+                     ->sortable()
+                     ->searchable(),
 
-            Tables\Columns\TextColumn::make('expense.type')
-               ->label('Despesa')
-               ->sortable(),
 
-            Tables\Columns\TextColumn::make('amount')
-               ->label('Valor')
-               ->numeric()
-               ->sortable(),
-               
-            Tables\Columns\TextColumn::make('status')
-               ->label('Status')
-               ->searchable(),
+                  Tables\Columns\TextColumn::make('status')
+                     ->label('Status')
+                     ->searchable()
+                     ->badge(),
+               ])
+                  ->space(1),
 
-            Tables\Columns\TextColumn::make('created_at')
-               ->label('Criado em')
-               ->dateTime()
-               ->sortable()
-               ->since(),
+               // Coluna direita
+               Stack::make([
+                  Tables\Columns\TextColumn::make('expense.type')
+                     ->label('Despesa')
+                     ->sortable(),
 
-            Tables\Columns\TextColumn::make('updated_at')
-               ->label('Atualizado em')
-               ->dateTime()
-               ->sortable()
-               ->toggleable(isToggledHiddenByDefault: true),
+                  Tables\Columns\TextColumn::make('amount')
+                     ->label('Valor')
+                     ->money('BRL')
+                     ->sortable(),
+
+                  Tables\Columns\TextColumn::make('created_at')
+                     ->label('Criado em')
+                     ->dateTime('d/m/Y H:i')
+                     ->sortable()
+                     ->since(),
+               ])
+                  ->space(1)
+                  ->alignment('end'),
+
+            ])
+               ->from('md'), // Split só funciona em telas médias ou maiores
          ])
+
          ->defaultSort('created_at', 'desc')
          ->filters([
             //
@@ -140,7 +156,6 @@ class SponsorshipResource extends Resource
                Tables\Actions\EditAction::make(),
                Tables\Actions\DeleteAction::make(),
             ])
-               ->icon('heroicon-o-ellipsis-horizontal')
          ])
          ->bulkActions([
             Tables\Actions\BulkActionGroup::make([

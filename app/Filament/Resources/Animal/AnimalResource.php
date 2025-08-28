@@ -254,7 +254,8 @@ class AnimalResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('name');
     }
 
     public static function infolist(Infolist $infolist): Infolist
