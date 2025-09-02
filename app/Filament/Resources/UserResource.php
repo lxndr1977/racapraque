@@ -92,6 +92,7 @@ class UserResource extends Resource
                   Forms\Components\Select::make('role')
                      ->label('Permissão')
                      ->options(RoleEnum::class)
+                     ->default(RoleEnum::Supporter)
                      ->required(),
                ])
                ->columns(2)

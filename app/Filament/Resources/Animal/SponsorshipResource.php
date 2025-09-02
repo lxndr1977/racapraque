@@ -96,6 +96,7 @@ class SponsorshipResource extends Resource
          ]);
    }
 
+
    public static function table(Table $table): Table
    {
       return $table
@@ -183,7 +184,6 @@ class SponsorshipResource extends Resource
                      ->columns(2),
                ])
                ->collapsible()
-               ->persistCollapsed()
                ->columns(1),
 
             Section::make('Dados do Apoiador')
@@ -225,7 +225,6 @@ class SponsorshipResource extends Resource
                      ->openUrlInNewTab(),
                ])
                ->collapsible()
-               ->persistCollapsed()
                ->columns(2),
 
             Section::make('Informações Financeiras')
@@ -246,9 +245,7 @@ class SponsorshipResource extends Resource
                      ->schema([
                         TextEntry::make('expense.recurrence_days')
                            ->label('Recorrência')
-                           ->suffix(' dias')
-                           ->placeholder('Único')
-                           ->color('secondary'),
+                           ->placeholder('Único'),
 
                         TextEntry::make('amount')
                            ->label('Valor do Apadrinhamento')
@@ -257,8 +254,17 @@ class SponsorshipResource extends Resource
                      ->columns(2),
                ])
                ->collapsible()
-               ->persistCollapsed()
                ->columns(1),
+
+            Section::make('Observações')
+               ->description('Anotações de uso interno')
+               ->schema([
+                  TextEntry::make('notes')
+                     ->label('Anotações'),
+               ])
+               ->collapsible()
+               ->columns(2)
+               ->visible(fn($record) => !empty($record->notes)),
 
             Section::make('Histórico')
                ->description('Datas de criação e última atualização')
