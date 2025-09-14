@@ -9,6 +9,7 @@ use App\Models\Animal\Expense;
 use App\Models\Animal\Sponsorship;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Jobs\SendSponsorshipEmailJob;
 use App\Enums\Animal\SponsorshipStatusEnum;
 
 class SponsorshipService
@@ -32,9 +33,11 @@ class SponsorshipService
 
             $expense = Expense::select('amount', 'payment_link')->find($expense_id);
 
-            $this->createSponsorship($user, $expense_id, $expense->amount);
+            $sponsorship = $this->createSponsorship($user, $expense_id, $expense->amount);
 
             DB::commit();
+
+            SendSponsorshipEmailJob::dispatch($sponsorship);
 
             return [
                 'status' => 'success',

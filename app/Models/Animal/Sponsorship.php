@@ -12,6 +12,8 @@ class Sponsorship extends Model
 {
     use HasFactory;
 
+    public bool $sendEmails = false;
+
     protected $fillable = [
         'user_id',
         'expense_id',

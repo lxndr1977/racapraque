@@ -11,19 +11,20 @@ use App\Models\Animal\Expense;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use App\Models\Animal\Sponsorship;
+use Filament\Forms\Components\Toggle;
 use Filament\Support\Enums\FontWeight;
 use Filament\Infolists\Components\Group;
 use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Infolists\Components\Section;
 use App\Enums\Animal\SponsorshipStatusEnum;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Infolists\Components\TextEntry\TextEntrySize;
 use App\Filament\Resources\Animal\SponsorshipResource\Pages;
 use App\Filament\Resources\Animal\SponsorshipResource\RelationManagers;
-use Filament\Tables\Columns\Layout\Stack;
-use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class SponsorshipResource extends Resource
 {
@@ -91,6 +92,13 @@ class SponsorshipResource extends Resource
                      ->label('Notas')
                      ->maxLength(255)
                      ->default(null),
+
+                 
+                  Toggle::make('sendEmails')
+                        ->label('Enviar notificações por email/WhatsApp')
+                        ->helperText('Desmarque para criar o apadrinhamento sem enviar notificações automáticas')
+                        ->default(false) 
+                        ->live(),
                ])
                ->columns(2)
          ]);
