@@ -1,43 +1,51 @@
 <form wire:submit.prevent="submit" class=" py-4">
    <div class="space-y-4">
+      <!-- Modal Header -->
+
       @if (session()->has('message'))
-         <div
-            class="{{ session('message.type') === 'success' ? 'bg-green-50 border-green-200 text-green-500' : 'bg-red-50 border-red-200 text-red-500' }} p-2 px-4 rounded-md border-1 font-medium text-center">
-            {{ session('message.text') }}
-         </div>
+         <!-- Modal Backdrop -->
+         @include('partials.animal.sponsorship-confirmation-modal')
+      @endif
+      @if ($showReminder && $reminderData['type'] === 'success')
 
-         @if (session('message.type') === 'success')
-            <div class="text-center">
-               <x-heroicon-o-check-circle class="w-15 h-15 text-green-500 mx-auto mb-6" />
+         <!-- Lembrete que substitui o formulário -->
+         <div class="p-6 md:p-8 mb-6 rounded-xl border border-zinc-200 shadow-md bg-zinc-100">
 
-               <h4 class="text-2xl font-medium text-primary mb-8">Oba, estamos quase lá!</h4>
+            <div class="flex items-start gap-4">
+               <div class="flex-1">
+                  <h3 class="font-medium text-primary text-2xl mb-3">Apadrinhamento em Andamento</h3>
+                  <div class="text-zinc-900 mb-4 leading-relaxed">
+                     <p class="mb-2">
+                        <strong>Obrigado por querer me apadrinhar!</strong> Seu pedido foi registrado com sucesso.
+                     </p>
+                     <p class="mb-2">
+                        • Se você <strong>já efetuou o pagamento</strong>, a confirmação será processada em algumas
+                        horas.
+                     </p>
+                     <p>
+                        • Se você <strong>ainda não finalizou o pagamento</strong>, clique no botão abaixo para
+                        concluir.
+                     </p>
+                  </div>
 
-               <div class="bg-zinc-50 border-1 border-zinc-200 p-8 rounded-md mb-8">
-
-                  <p class="mb-3 font-medium">
-                     Saber que você quer me apadrinhar enquanto espero por uma família que me adote encheu o meu coração
-                     de esperança.
-                  </p>
-                  <p class="leading-relaxed">Já anotei aqui que você quer me apadrinhar. Agora é só clicar no botão
-                     abaixo para finalizar o pagamento.</p>
+                  @if ($reminderData['link'])
+                     <x-button type="link" href="{{ $reminderData['link'] }}" target="_blank"
+                        class="inline-flex items-center w-full py-3 text-lg">
+                        <x-heroicon-o-credit-card class="w-5 h-5 mr-2" />
+                        Finalizar Pagamento
+                     </x-button>
+                  @endif
                </div>
             </div>
-         @endif
-
-         @if (session('message.link'))
-            <x-button type="link" href="{{ session('message.link') }}" target="_blank"
-               class="w-full text-lg py-4">Finalizar pagamento</x-button>
-         @endif
+         </div>
       @endif
 
       @if ($animal->expensesActive->isNotEmpty())
-         @if (!session()->has('message'))
+         @if (!session()->has('message') && !$showReminder)
 
-            {{-- ===== SEÇÃO DE PROGRESSO - INSERIR AQUI ===== --}}
             <div class="bg-zinc-50 border-1 border-zinc-200 p-6 rounded-md mb-8">
                <h3 class="font-medium text-primary mb-6">Esse é o progresso do meu apadrinhamento</h3>
 
-               {{-- Cards com totais --}}
                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                   <div class="text-center p-4 bg-white border-1 border-zinc-200 rounded-md">
                      <div class="text-2xl font-bold text-zinc-800">{{ $this->getFormattedTotalExpenses() }}</div>
@@ -55,7 +63,6 @@
                   </div>
                </div>
 
-               {{-- Barra de progresso --}}
                <div class="mb-4">
                   <div class="flex justify-between items-center mb-2">
                      <span class="text-sm font-medium text-zinc-700">Meta de Apadrinhamento</span>
@@ -79,13 +86,14 @@
                   @endif
                </div>
             </div>
-            {{-- ===== FIM DA SEÇÃO DE PROGRESSO ===== --}}
 
             <div class="p-0 md:p-8 rounded-xl  border border-1 border-zinc-100 shadow-md">
 
                <h2 class="text-2xl md:text-3xl mb-6 font-medium text-primary">Apadrinhe</h2>
 
-               <p class="mb-8 leading-relaxed">Com seu apadrinhamento, você ajuda a cuidar de mim até eu encontrar uma família. Você pode apadrinhar o valor integral de uma despesa o contribuir com o valor que puder — toda ajuda conta!</p>
+               <p class="mb-8 leading-relaxed">Com seu apadrinhamento, você ajuda a cuidar de mim até eu encontrar uma
+                  família. Você pode apadrinhar o valor integral de uma despesa ou contribuir com o valor que puder —
+                  toda ajuda conta!</p>
 
                <div class="space-y-8">
                   <div>
@@ -149,10 +157,8 @@
                               let value = this.phone.replace(/\D/g, '');
 
                               if (value.length <= 10) {
-                                 // Telefone fixo: (11) 9999-9999
                                  value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
                               } else {
-                                 // Celular: (11) 99999-9999
                                  value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
                               }
 

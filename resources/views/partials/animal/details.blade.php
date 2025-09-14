@@ -21,8 +21,6 @@
    </div>
 </div>
 
-
-
 <div class="border-1 border-zinc-200 rounded-lg">
       <div class="flex items-center text-zinc-900 py-4 px-6 rounded-t-lg bg-zinc-50 border-b-1 border-zinc-200">
          <div class="flex items-center justify-center mr-3">
