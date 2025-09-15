@@ -1,23 +1,18 @@
 <div class="fixed inset-0 bg-black/60 backdrop-blur flex items-center justify-center z-50 p-4"
    x-data="{ show: true }"
-   x-show="show"
-   x-transition:enter="transition ease-out duration-300"
-   x-transition:enter-start="opacity-0"
-   x-transition:enter-end="opacity-100"
-   x-transition:leave="transition ease-in duration-200"
-   x-transition:leave-start="opacity-100"
-   x-transition:leave-end="opacity-0"
+   style="display: flex !important;"  {{-- Forçar display --}}
    wire:click="closeModal()">
 
    <!-- Modal Content -->
-<div class="bg-white rounded-lg w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl max-h-screen overflow-y-auto"
+   <div
+      class="bg-white rounded-lg w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl max-h-screen overflow-y-auto"
       @click.stop
       x-transition:enter="transition ease-out duration-300"
       x-transition:enter-start="opacity-0 scale-95"
       x-transition:enter-end="opacity-100 scale-100"
       x-transition:leave="transition ease-in duration-200"
       x-transition:leave-start="opacity-100 scale-100"
-      x-transition:leave-end="opacity-0 scale-95"> 
+      x-transition:leave-end="opacity-0 scale-95">
 
       <!-- Modal Header -->
       <div class="flex justify-between items-center p-4 border-b border-zinc-200">
