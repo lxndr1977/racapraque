@@ -1,6 +1,13 @@
 <div class="fixed inset-0 bg-black/60 backdrop-blur flex items-center justify-center z-50 p-4"
-   x-data="{ show: true }"
-   style="display: flex !important;"  {{-- Forçar display --}}
+   x-data="{ show: false }" 
+   x-init="$nextTick(() => { show = true; })"
+   x-show="show"
+   x-transition:enter="transition ease-out duration-300"
+   x-transition:enter-start="opacity-0"
+   x-transition:enter-end="opacity-100"
+   x-transition:leave="transition ease-in duration-200"
+   x-transition:leave-start="opacity-100"
+   x-transition:leave-end="opacity-0"
    wire:click="closeModal()">
 
    <!-- Modal Content -->
