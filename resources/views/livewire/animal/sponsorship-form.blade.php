@@ -2,10 +2,10 @@
    <div class="space-y-4">
       <!-- Modal Header -->
 
-      @if (session()->has('message'))
+      {{-- @if (session()->has('message')) --}}
          <!-- Modal Backdrop -->
          @include('partials.animal.sponsorship-confirmation-modal')
-      @endif
+      {{-- @endif --}}
       @if ($showReminder && $reminderData['type'] === 'success')
 
          <!-- Lembrete que substitui o formulário -->
