@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
     */
    public function boot(): void
    {
+      
+      Sponsorship::observe(SponsorshipObserver::class);
+
       SponsorshipService::class;
       TwilioService::class;
       WhatsAppService::class;
